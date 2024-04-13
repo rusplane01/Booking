@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    {% if request.user.is_authenticated %}
+        <h1>RUSLAN forum</h1>
+        <form method="POST", action="{% url 'booking_form'%}">
+            {% csrf_token %}
+            
+            <div>
+                <label for="room_number">номер комнаты</label>
+                <input type="text" id="room_number" name="room_number" required>
+            </div>
+
+            <div>
+                <label for="start_time">прибытие</label>
+                <input type="datetime-local" id="start_time" name="start_time" required>
+            </div>
+
+            <div>
+                <label for="end_time">отбытие</label> 
+                <input type="datetime-local" id="end_time" name="end_time" required>
+            </div>
+
+            <button type="submit">сохранить</button>
+        </form>
+    {% else %}
+
+    <h1>you cant</h1>
+    {% endif %}
+
+{% endblock content %}

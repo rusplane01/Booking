@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Booking Detail</h1>
+<ul>
+    <li>Number: {{ booking.room.number }}</li>
+    <li>User: {{ booking.user }}</li>
+    <li>Start Time: {{ booking.start_time }}</li>
+    <li>End Time: {{ booking.end_time }}</li>
+    <li>Created at: {{ booking.created_at }}</li>
+</ul>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <h4>Комната {{ room.number }}</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">номер комнаты - {{ room.number }}</li>
+          <li class="list-group-item">вместимость комнаты - {{ room.capacity }}</li>
+          <li class="list-group-item">описание - {{ room.description }}</li>
+        </ul>
+      </div>
+ 
+{% endblock content %}
