@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
     {% if request.user.is_authenticated %}
-        <h1>RUSLAN forum</h1>
+        <h1>RUSLAN form</h1>
         <form method="POST", action="{% url 'booking_form'%}">
             {% csrf_token %}
             

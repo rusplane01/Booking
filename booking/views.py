@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Room, Booking
 from django.shortcuts import HttpResponse
+from django.conf import settings
+User = settings.AUTH_USER_MODEL
 
 def get_room_list(request):
     rooms = Room.objects.all()
     context = {
                 "rooms": rooms,
     }
-    return render(request, 'room_list.html', context)
+    return render(request, 'booking/room_list.html', context)
 
 def index(request):
     return render(request, 'base.html',) 
@@ -17,18 +19,18 @@ def get_room_detail(request, pk):
     context = {
                 "room": room,
     }
-    return render(request, 'room_detail.html', context)    
+    return render(request, 'booking/room_detail.html', context)    
 
 def booking_detail(request, pk):
     booking = Booking.objects.get(id=pk)
     context = {
         'booking': booking,
     }
-    return render(request, 'booking_detail.html', context)
+    return render(request, 'booking/booking_detail.html', context)
 
 def booking_form(request):
     if request.method == 'GET':
-        return render(request, 'booking_form.html')
+        return render(request, 'booking/booking_form.html')
     else:
         room_number = request.POST.get('room_number')
         start_time = request.POST.get('start_time')

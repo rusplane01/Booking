@@ -1,6 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+from django.conf import settings
+User = settings.AUTH_USER_MODEL
 
 class Room(models.Model):
     number = models.CharField(max_length=50)
@@ -30,3 +30,4 @@ class Booking(models.Model):
         verbose_name = "Booking"
         verbose_name_plural = "Bookings"
         ordering = ["start_time"]
+
