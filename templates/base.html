@@ -18,9 +18,21 @@
 
     <a href = "{% url 'room_list' %}">список комнат</a><br>
     <p></p>
-    <a href = "{% url 'admin:index' %}">администрация</a>
-    <p></p>
     <a href = "{% url 'booking_form' %}">забронировать комнату</a><br>
+    <p></p>
+    <a href = "{% url 'register-form' %}">регистрация</a><br>
+    <p></p>
+    <a href = "{% url 'login' %}">войти</a><br>
+    <p></p>
+
+    {% if user.is_authenticated %}
+        <a href = "{% url 'logout' %}">выход</a>
+    {% endif %}
+
+    <!-- {% if request.user.is_admin %}
+        <a href = "{% url 'admin:index' %}">администрация</a>
+        <p></p>
+    {% endif %} -->
 
     {% endblock content %}
     
