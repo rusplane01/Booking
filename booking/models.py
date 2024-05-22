@@ -6,6 +6,7 @@ class Room(models.Model):
     number = models.CharField(max_length=50)
     capacity = models.IntegerField()
     description = models.TextField(default='')
+    
 
     def __str__(self):
         return f"Room #{self.number} - {self.capacity}"
@@ -31,3 +32,10 @@ class Booking(models.Model):
         verbose_name_plural = "Bookings"
         ordering = ["start_time"]
 
+class Hotel(models.Model):
+    name = models.CharField(max_length=150)
+    place = models.CharField(max_length=150)
+    description = models.TextField()
+
+    def __str__(self):
+        return f"Hotel #{self.name} - {self.place}"

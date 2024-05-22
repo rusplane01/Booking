@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Room, Booking
+from .models import Room, Booking, Hotel
 from django.shortcuts import HttpResponse
 from django.conf import settings
 User = settings.AUTH_USER_MODEL
@@ -11,15 +11,29 @@ def get_room_list(request):
     }
     return render(request, 'booking/room_list.html', context)
 
-def index(request):
-    return render(request, 'base.html',) 
-
 def get_room_detail(request, pk):
     room = Room.objects.get(id=pk)
     context = {
                 "room": room,
     }
-    return render(request, 'booking/room_detail.html', context)    
+    return render(request, 'booking/room_detail.html', context)
+
+def get_hotel_list(request):
+    hotels = Hotel.objects.all()
+    context = {
+                "hotels": hotels,
+    }
+    return render(request, 'booking/hotel_list.html', context)
+
+def get_hotel_detail(request, pk):
+    hotel = Hotel.objects.get(id=pk)
+    context = {
+                "hotel": hotel,
+    }
+    return render(request, 'booking/hotel_detail.html', context)
+
+def index(request):
+    return render(request, 'base.html',)     
 
 def booking_detail(request, pk):
     booking = Booking.objects.get(id=pk)

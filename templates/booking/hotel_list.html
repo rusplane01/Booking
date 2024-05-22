@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h2>доступные отели</h2>
+    {% for hotel in hotels %}
+    <div class="card" style="width: 18rem;">
+        <img src="static/test.jpg" class="card-img-top" alt="static/test.jpg">
+        <div class="card-body">
+          <h5 class="card-title">{{ hotel.name }}</h5>
+          <p class="card-text">{{ hotel.place }}</p>
+          <a href="{% url 'hotel_detail' hotel.id %}" class="btn btn-primary">Подробнее</a>
+        </div>
+    </div>
+    <p></p>
+    {% endfor %}
+
+{% endblock content %}

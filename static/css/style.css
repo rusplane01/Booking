@@ -2,5 +2,9 @@ a{
     text-decoration: none;
 }
 
-
+html{
+    color: rgb(234, 217, 217);
+    background-color: black;
+    padding: 40px;
+}
 
